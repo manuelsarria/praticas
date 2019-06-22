@@ -28,6 +28,11 @@ export class InicioPage implements OnInit {
       name: 'Botones y router',
       redirectTo: '/botones',
     },
+    {
+      icon: 'cash',
+      name: 'card',
+      redirectTo: '/card',
+    },
   ];
 
   constructor() { }
