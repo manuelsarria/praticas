@@ -23,7 +23,7 @@ export class ListReorderPage implements OnInit {
   }
 
   onClick() {
-    console.log(this.personajes)
+    console.log(this.personajes);
   }
 
 }
