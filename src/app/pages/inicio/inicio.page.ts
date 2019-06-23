@@ -43,6 +43,11 @@ export class InicioPage implements OnInit {
       name: 'dateTime',
       redirectTo: '/date-time',
     },
+    {
+      icon: 'body',
+      name: 'fab',
+      redirectTo: '/fab',
+    },
   ];
 
   constructor() { }
