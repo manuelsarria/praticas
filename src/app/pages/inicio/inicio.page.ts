@@ -68,6 +68,11 @@ export class InicioPage implements OnInit {
       name: 'input ',
       redirectTo: '/input',
     },
+    {
+      icon: 'hammer',
+      name: 'list ',
+      redirectTo: '/list',
+    },
   ];
 
   constructor() { }
