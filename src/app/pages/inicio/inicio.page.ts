@@ -9,6 +9,11 @@ export class InicioPage implements OnInit {
 
   componentes: Componente[] = [
     {
+      icon: 'logo-whatsapp',
+      name: 'Alert',
+      redirectTo: '/alert',
+    },
+    {
       icon: 'american-football',
       name: 'action Sheet',
       redirectTo: '/action-sheet',
@@ -52,6 +57,11 @@ export class InicioPage implements OnInit {
       icon: 'grid',
       name: 'grid',
       redirectTo: '/grid',
+    },
+    {
+      icon: 'infinite',
+      name: 'infinite scroll',
+      redirectTo: '/infinite-scroll',
     },
   ];
 
