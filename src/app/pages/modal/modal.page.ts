@@ -15,7 +15,7 @@ export class ModalPage implements OnInit {
   ngOnInit() {
   }
 
-  async showModal() {
+  async openModal() {
 
     const modal = await this.modalCtrl.create({
       component: ModalInfoPage,
@@ -26,6 +26,9 @@ export class ModalPage implements OnInit {
     });
     await modal.present();
 
+    const { data } = await modal.onDidDismiss();
+
+    console.log('retorno modal',data);
   }
 
 }
