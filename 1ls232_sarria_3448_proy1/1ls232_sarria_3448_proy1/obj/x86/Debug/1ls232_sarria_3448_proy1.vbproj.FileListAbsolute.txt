@@ -1,0 +1,9 @@
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\bin\Debug\1ls232_sarria_3448_proy1.exe
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\bin\Debug\1ls232_sarria_3448_proy1.pdb
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\bin\Debug\1ls232_sarria_3448_proy1.xml
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\obj\x86\Debug\_1ls232_sarria_3448_proy1.Form1.resources
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\obj\x86\Debug\_1ls232_sarria_3448_proy1.Resources.resources
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\obj\x86\Debug\1ls232_sarria_3448_proy1.vbproj.GenerateResource.Cache
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\obj\x86\Debug\1ls232_sarria_3448_proy1.exe
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\obj\x86\Debug\1ls232_sarria_3448_proy1.xml
+c:\users\vsarria\documents\visual studio 2010\Projects\1ls232_sarria_3448_proy1\1ls232_sarria_3448_proy1\obj\x86\Debug\1ls232_sarria_3448_proy1.pdb
