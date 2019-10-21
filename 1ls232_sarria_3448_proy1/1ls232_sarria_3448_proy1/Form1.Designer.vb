@@ -33,6 +33,8 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.result_parcial = New System.Windows.Forms.TextBox()
         Me.txt_indice = New System.Windows.Forms.TextBox()
+        Me.Txtpb = New System.Windows.Forms.TextBox()
+        Me.btn_borrar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'i_result
@@ -85,8 +87,7 @@ Partial Class Form1
         '
         'btn_resolver
         '
-        Me.btn_resolver.Enabled = False
-        Me.btn_resolver.Location = New System.Drawing.Point(302, 61)
+        Me.btn_resolver.Location = New System.Drawing.Point(303, 50)
         Me.btn_resolver.Name = "btn_resolver"
         Me.btn_resolver.Size = New System.Drawing.Size(75, 23)
         Me.btn_resolver.TabIndex = 29
@@ -114,7 +115,7 @@ Partial Class Form1
         '
         Me.result_parcial.Location = New System.Drawing.Point(252, 93)
         Me.result_parcial.Name = "result_parcial"
-        Me.result_parcial.Size = New System.Drawing.Size(30, 20)
+        Me.result_parcial.Size = New System.Drawing.Size(43, 20)
         Me.result_parcial.TabIndex = 33
         '
         'txt_indice
@@ -124,11 +125,29 @@ Partial Class Form1
         Me.txt_indice.Size = New System.Drawing.Size(27, 20)
         Me.txt_indice.TabIndex = 34
         '
+        'Txtpb
+        '
+        Me.Txtpb.Location = New System.Drawing.Point(527, 110)
+        Me.Txtpb.Name = "Txtpb"
+        Me.Txtpb.Size = New System.Drawing.Size(91, 20)
+        Me.Txtpb.TabIndex = 35
+        '
+        'btn_borrar
+        '
+        Me.btn_borrar.Location = New System.Drawing.Point(302, 80)
+        Me.btn_borrar.Name = "btn_borrar"
+        Me.btn_borrar.Size = New System.Drawing.Size(76, 33)
+        Me.btn_borrar.TabIndex = 36
+        Me.btn_borrar.Text = "Borrar"
+        Me.btn_borrar.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(669, 248)
+        Me.Controls.Add(Me.btn_borrar)
+        Me.Controls.Add(Me.Txtpb)
         Me.Controls.Add(Me.txt_indice)
         Me.Controls.Add(Me.result_parcial)
         Me.Controls.Add(Me.Label5)
@@ -157,5 +176,7 @@ Partial Class Form1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents result_parcial As System.Windows.Forms.TextBox
     Friend WithEvents txt_indice As System.Windows.Forms.TextBox
+    Friend WithEvents Txtpb As System.Windows.Forms.TextBox
+    Friend WithEvents btn_borrar As System.Windows.Forms.Button
 
 End Class

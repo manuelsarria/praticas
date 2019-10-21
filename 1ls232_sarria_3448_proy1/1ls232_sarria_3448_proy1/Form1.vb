@@ -116,9 +116,20 @@
         p_result.Text = realizar_operacion(vtxt_num)
 
         For i = 0 To 3
-            vbtn_num(i).Enabled = False
-            vbtn_oper(i).Enabled = True
+            If txt_indice.Text <= 6 Then
+                vbtn_oper(i).Enabled = True
+            End If
+
+            If vbtn_num(i).Tag = 0 Then
+                vbtn_num(i).Enabled = False
+            End If
         Next
+
+        ' btn_temp.Tag = 1
+
+        ' Asignar al tag del vector numero la posicion actual
+        btn_temp.Tag = Val(txt_indice.Text)
+
     End Sub
 
     Sub btn_oper_click(ByVal sender As Object, ByVal e As EventArgs)
@@ -133,8 +144,13 @@
         p_result.Text = realizar_operacion(vtxt_num)
 
         For i = 0 To 3
-            vbtn_num(i).Enabled = True
+
             vbtn_oper(i).Enabled = False
+
+            If vbtn_num(i).Tag = 0 Then
+                vbtn_num(i).Enabled = True
+            End If
+
         Next
     End Sub
 
@@ -184,6 +200,27 @@
 
 
     Private Sub btn_resolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_resolver.Click
+
+    End Sub
+
+    Private Sub btn_borrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_borrar.Click
+        txt_indice.Text = txt_indice.Text - 1
+        Dim i As Integer
+        Dim j As Integer
+
+        i = Val(txt_indice.Text)
+        vtxt_num(i).Text = ""
+
+        If (i Mod 2 = 0) Then
+            For j = 0 To 3
+                If (vbtn_num(j).Tag = i + 1) Then
+                    vbtn_num(j).Tag = 0
+                    vbtn_num(j).Enabled = True
+                End If
+            Next
+        End If
+
+        Txtpb.Text = i
 
     End Sub
 End Class
