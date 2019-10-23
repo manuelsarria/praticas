@@ -22,6 +22,7 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.i_result = New System.Windows.Forms.TextBox()
         Me.p_result = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -33,8 +34,10 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.result_parcial = New System.Windows.Forms.TextBox()
         Me.txt_indice = New System.Windows.Forms.TextBox()
-        Me.Txtpb = New System.Windows.Forms.TextBox()
         Me.btn_borrar = New System.Windows.Forms.Button()
+        Me.txt_time = New System.Windows.Forms.TextBox()
+        Me.tiempo = New System.Windows.Forms.Label()
+        Me.time = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'i_result
@@ -87,6 +90,7 @@ Partial Class Form1
         '
         'btn_resolver
         '
+        Me.btn_resolver.Enabled = False
         Me.btn_resolver.Location = New System.Drawing.Point(303, 50)
         Me.btn_resolver.Name = "btn_resolver"
         Me.btn_resolver.Size = New System.Drawing.Size(75, 23)
@@ -125,13 +129,6 @@ Partial Class Form1
         Me.txt_indice.Size = New System.Drawing.Size(27, 20)
         Me.txt_indice.TabIndex = 34
         '
-        'Txtpb
-        '
-        Me.Txtpb.Location = New System.Drawing.Point(527, 110)
-        Me.Txtpb.Name = "Txtpb"
-        Me.Txtpb.Size = New System.Drawing.Size(91, 20)
-        Me.Txtpb.TabIndex = 35
-        '
         'btn_borrar
         '
         Me.btn_borrar.Location = New System.Drawing.Point(302, 80)
@@ -141,13 +138,34 @@ Partial Class Form1
         Me.btn_borrar.Text = "Borrar"
         Me.btn_borrar.UseVisualStyleBackColor = True
         '
+        'txt_time
+        '
+        Me.txt_time.Location = New System.Drawing.Point(509, 58)
+        Me.txt_time.Name = "txt_time"
+        Me.txt_time.Size = New System.Drawing.Size(38, 20)
+        Me.txt_time.TabIndex = 37
+        '
+        'tiempo
+        '
+        Me.tiempo.AutoSize = True
+        Me.tiempo.Location = New System.Drawing.Point(464, 61)
+        Me.tiempo.Name = "tiempo"
+        Me.tiempo.Size = New System.Drawing.Size(38, 13)
+        Me.tiempo.TabIndex = 38
+        Me.tiempo.Text = "tiempo"
+        '
+        'time
+        '
+        Me.time.Interval = 1000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(669, 248)
+        Me.Controls.Add(Me.tiempo)
+        Me.Controls.Add(Me.txt_time)
         Me.Controls.Add(Me.btn_borrar)
-        Me.Controls.Add(Me.Txtpb)
         Me.Controls.Add(Me.txt_indice)
         Me.Controls.Add(Me.result_parcial)
         Me.Controls.Add(Me.Label5)
@@ -160,7 +178,7 @@ Partial Class Form1
         Me.Controls.Add(Me.p_result)
         Me.Controls.Add(Me.i_result)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Calculo Matemático"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -176,7 +194,9 @@ Partial Class Form1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents result_parcial As System.Windows.Forms.TextBox
     Friend WithEvents txt_indice As System.Windows.Forms.TextBox
-    Friend WithEvents Txtpb As System.Windows.Forms.TextBox
     Friend WithEvents btn_borrar As System.Windows.Forms.Button
+    Friend WithEvents txt_time As System.Windows.Forms.TextBox
+    Friend WithEvents tiempo As System.Windows.Forms.Label
+    Friend WithEvents time As System.Windows.Forms.Timer
 
 End Class

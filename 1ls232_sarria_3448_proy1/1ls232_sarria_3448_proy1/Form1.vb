@@ -1,8 +1,10 @@
 ﻿Public Class Form1
+
     Dim vtxt_texto(6) As TextBox
     Dim vtxt_num(6) As TextBox
     Dim vbtn_num(3) As Button
     Dim vbtn_oper(3) As Button
+    Dim contador As Integer
 
     Public Sub New()
 
@@ -10,6 +12,8 @@
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        contador = 60
+        txt_time.Text = contador
         Dim i As Integer
         Dim rnd As System.Random = New System.Random()
         Dim txt_texto As TextBox
@@ -21,12 +25,14 @@
             txt_texto = New TextBox
             txt_texto.Size = New Size(22, 20)
             txt_texto.Location = New Point(33 + (txt_texto.Width + 6) * i, 12)
+            txt_texto.Enabled = False
             'txt_texto.Text = rnd.Next(1, 10)
             Controls.Add(txt_texto)
             vtxt_texto(i) = txt_texto
 
             txt_num = New TextBox
             txt_num.Size = New Size(22, 20)
+            txt_num.Enabled = False
             txt_num.Location = New Point(33 + (txt_num.Width + 6) * i, 43)
             'txt_texto.Text = rnd.Next(1, 10)
             Controls.Add(txt_num)
@@ -64,43 +70,8 @@
 
 
     Public Sub btn_iniciar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_iniciar.Click
-        Dim rnd As System.Random = New System.Random()
-        Dim i As Integer
-        Dim temp
-        Dim operador(3) As String
-        operador(0) = "+"
-        operador(1) = "-"
-        operador(2) = "*"
-        operador(3) = "/"
 
-        ' generar numeros
-        For i = 0 To 6
-            vtxt_texto(i).Text = rnd.Next(1, 10)
-            'asignar numeros de los botones
-            vbtn_num(i / 2).Text = vtxt_texto(i).Text
-            i = i + 1
-        Next
-
-        'desordenar numeros
-        For i = 1 To 3
-            temp = vbtn_num(0).Text
-            vbtn_num(0).Text = vbtn_num(i).Text
-            vbtn_num(i).Text = temp
-        Next
-
-        ' generar operadores
-        For i = 1 To 5
-            vtxt_texto(i).Text = generar_operador()
-            i = i + 1
-        Next
-
-        For i = 0 To 3
-            vbtn_oper(i).Text = operador(i)
-
-        Next
-
-        i_result.Text = realizar_operacion(vtxt_texto)
-
+        iniciar()
 
     End Sub
 
@@ -129,6 +100,35 @@
 
         ' Asignar al tag del vector numero la posicion actual
         btn_temp.Tag = Val(txt_indice.Text)
+
+        'valido si es correcto el resultado y uso todos los numeros
+        If Val(txt_indice.Text) = 7 And i_result.Text = p_result.Text Then
+            time.Stop()
+            MsgBox("lo lograste click en aceptar para  continuar")
+
+            'aumento 40 segundos si completa la operacion
+            contador = Val(txt_time.Text) + 40
+            'txt_time.Text = Val(txt_time.Text) + 40
+
+            For i = 0 To 6
+                'limpio los campos de numeros
+                vtxt_num(i).Text = ""
+            Next
+            p_result.Text = ""
+
+            txt_indice.Text = 0
+
+            For i = 0 To 3
+                vbtn_num(i).Tag = 0
+                vbtn_num(i).Enabled = True
+            Next
+
+
+
+            iniciar()
+
+
+        End If
 
     End Sub
 
@@ -198,17 +198,77 @@
 
     End Function
 
-
+    'resolver el problema
     Private Sub btn_resolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_resolver.Click
+
+
+        time.Stop()
+        txt_time.Text = 0
+        For i = 0 To 6
+            vtxt_num(i).Text = vtxt_texto(i).Text
+        Next
+
+        'calcular resultado
+        p_result.Text = realizar_operacion(vtxt_num)
+
 
     End Sub
 
-    Private Sub btn_borrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_borrar.Click
-        txt_indice.Text = txt_indice.Text - 1
+    Public Function iniciar()
+        time.Start()
+        btn_resolver.Enabled = True
+        Dim rnd As System.Random = New System.Random()
         Dim i As Integer
-        Dim j As Integer
+        Dim temp
+        Dim operador(3) As String
+        operador(0) = "+"
+        operador(1) = "-"
+        operador(2) = "*"
+        operador(3) = "/"
 
+        ' generar numeros
+        For i = 0 To 6
+            vtxt_texto(i).Text = rnd.Next(1, 10)
+            'asignar numeros de los botones
+            vbtn_num(i / 2).Text = vtxt_texto(i).Text
+            i = i + 1
+        Next
+
+        'desordenar numeros
+        For i = 1 To 3
+            temp = vbtn_num(0).Text
+            vbtn_num(0).Text = vbtn_num(i).Text
+            vbtn_num(i).Text = temp
+        Next
+
+        ' generar operadores
+        For i = 1 To 5
+            vtxt_texto(i).Text = generar_operador()
+            i = i + 1
+        Next
+
+        For i = 0 To 3
+            vbtn_oper(i).Text = operador(i)
+
+        Next
+
+        i_result.Text = realizar_operacion(vtxt_texto)
+    End Function
+
+    Private Sub btn_borrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_borrar.Click
+        Dim j As Integer
+        Dim i As Integer
+
+        If txt_indice.Text - 1 < 0 Then
+            Return
+        End If
+
+        txt_indice.Text = txt_indice.Text - 1
         i = Val(txt_indice.Text)
+
+        If i < 0 Then
+            Return
+        End If
         vtxt_num(i).Text = ""
 
         If (i Mod 2 = 0) Then
@@ -218,9 +278,27 @@
                     vbtn_num(j).Enabled = True
                 End If
             Next
+
+        Else
+
+            For i = 0 To 3
+                vbtn_oper(i).Enabled = True
+            Next
+
         End If
 
-        Txtpb.Text = i
+        'actulizar resultado en tiempo real
+        p_result.Text = realizar_operacion(vtxt_num)
 
     End Sub
+
+    Private Sub time_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles time.Tick
+        contador = contador - 1
+        txt_time.Text = contador
+        If contador = 0 Then
+            time.Stop()
+            MsgBox("Perdiste se agoto el tiempo!")
+        End If
+    End Sub
+
 End Class
